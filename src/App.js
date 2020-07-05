@@ -1,24 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import apiRoot from "./apiRoot";
+import "./App.css";
 
 function App() {
+  const handleAddNew = () => {
+    fetch(`${apiRoot}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        from: document.querySelector(".input-name").value,
+        text: document.querySelector(".input-message").value,
+      }),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        console.log("Message Added");
+      });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <h2>Send a message</h2>
+      <form>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Name:{" "}
+          <input
+            className="input-name"
+            type="text"
+            name="from"
+            placeholder="Your Name"
+          />{" "}
+          <br />
+          Message:{" "}
+          <input
+            className="input-message"
+            type="text"
+            placeholder="The message..."
+          />
+          <br />
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={() => handleAddNew()} type="submit">
+          Send
+        </button>
+      </form>
     </div>
   );
 }
