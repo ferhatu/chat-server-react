@@ -1,3 +1,2 @@
-
-const apiRoot = "https://ferhatu-chat-server.glitch.me";
+const apiRoot = "https://chat-server-ferhat.herokuapp.com/";
 export default apiRoot;
