@@ -1,11 +1,11 @@
 import React from "react";
 import apiRoot from "./apiRoot";
-import Chatflow from "./Chatflow"
+import Chatflow from "./Chatflow";
 import "./App.css";
 
 function App() {
   const handleAddNew = () => {
-    fetch(`${apiRoot}/messages`, {
+    fetch(apiRoot, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -45,7 +45,7 @@ function App() {
         <button onClick={() => handleAddNew()} type="submit">
           Send
         </button>
-        < Chatflow />
+        <Chatflow />
       </form>
     </div>
   );
