@@ -1,5 +1,6 @@
 import React from "react";
 import apiRoot from "./apiRoot";
+import Chatflow from "./Chatflow"
 import "./App.css";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <button onClick={() => handleAddNew()} type="submit">
           Send
         </button>
+        < Chatflow />
       </form>
     </div>
   );
