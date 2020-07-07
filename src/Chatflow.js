@@ -11,8 +11,8 @@ const Chatflow = () => {
 
   return (
     <div>
-      {messages.map((message) => (
-        <div>
+      {messages.map((message, i) => (
+        <div key={i}>
           <p>{message.from}</p>
           <p>{message.text}</p>
         </div>
